@@ -1,0 +1,59 @@
+" Color Theme
+set background=dark
+colors peaksea
+
+" Plugins
+runtime macros/matchit.vim					" if-else matching (built-in)
+call plug#begin('~/.vim/plugged')		" vim-plug plugin manager
+
+Plug 'christoomey/vim-system-copy'	" clipboard copy/paste
+Plug 'itchyny/lightline.vim'				" configure statusline
+Plug 'terryma/vim-multiple-cursors'	" multiple cursors
+Plug 'tpope/vim-commentary'					" comment stuff
+Plug 'tpope/vim-fugitive'						" git wrapper
+Plug 'tpope/vim-surround'						" quoting/parenthesizing
+
+call plug#end()
+
+" Plugin Config
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'fugitive#head'
+  \ },
+  \ }
+
+" Vim Options
+filetype plugin indent on						" filetype-specific settings
+syntax on														" syntax highlighting
+
+set autoindent											" automatically indent lines
+set backspace=indent,eol,start			" backspace behvaior
+set hidden													" unsaved buffers
+set hlsearch												" highlight search
+set ignorecase											" case-insensative search
+set incsearch												" incremental search
+set laststatus=2										" show status line
+set number													" line numbers
+set nocompatible 										" vim compatibility
+set noshowmode											" hide insert status
+set path+=**												" recursive file-search
+set relativenumber									" relative line numbers
+set ruler														" line and column number
+set showtabline=2										" file tab
+set tabstop=2												" set tab to 2 spaces
+set wildmenu												" command-line completion
+
+" Functions
+fun! TrimWhiteSpace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+
+" Commands
+command! Trim call TrimWhiteSpace()
