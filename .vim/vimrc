@@ -31,8 +31,9 @@ let g:lightline = {
 filetype plugin indent on           " filetype-specific settings
 syntax on                           " syntax highlighting
 
-set autoindent                      " automatically indent lines
+set autoindent                      " apply indent from previous line
 set backspace=indent,eol,start      " backspace behvaior
+set expandtab                       " set tab press to 2 spaces
 set hidden                          " unsaved buffers
 set hlsearch                        " highlight search
 set ignorecase                      " case-insensative search
@@ -44,9 +45,9 @@ set noshowmode                      " hide insert status
 set path+=**                        " recursive file-search
 set relativenumber                  " relative line numbers
 set ruler                           " line and column number
-set shiftwidth=2                    " set indent to 2 spaces
+set shiftwidth=2                    " set indent (>) to 2 spaces
 set showtabline=2                   " file tab
-set tabstop=2                       " set tab to 2 spaces
+set tabstop=2                       " tabs appear 2 spaces wide
 set wildmenu                        " command-line completion
 
 " Functions
