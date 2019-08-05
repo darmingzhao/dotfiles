@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # utils
 answer_is_yes() {
@@ -58,6 +58,7 @@ create_symlinks() {
     ".tmux.conf"
     ".vimrc"
     ".vim"
+    ".zshrc"
 
   )
 

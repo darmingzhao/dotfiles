@@ -39,9 +39,9 @@ set hlsearch                        " highlight search
 set ignorecase                      " case-insensative search
 set incsearch                       " incremental search
 set laststatus=2                    " show status line
-set number                          " line numbers
 set nocompatible                    " vim compatibility
 set noshowmode                      " hide insert status
+set number                          " line numbers
 set path+=**                        " recursive file-search
 set relativenumber                  " relative line numbers
 set ruler                           " line and column number
@@ -58,6 +58,7 @@ fun! TrimWhiteSpace()
 endfun
 
 " Commands
+command! Update execute "so ~/.vim/vimrc"
 command! Trim call TrimWhiteSpace()
 
 " Mappings
