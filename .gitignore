@@ -3,3 +3,5 @@
 
 # Vim
 .vim/plugged/*
+.vim/swap/*
+.vim/.netrwhist

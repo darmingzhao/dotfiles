@@ -7,11 +7,13 @@ runtime macros/matchit.vim          " if-else matching (built-in)
 call plug#begin('~/.vim/plugged')   " vim-plug plugin manager
 
 Plug 'christoomey/vim-system-copy'  " clipboard copy/paste
+Plug 'dense-analysis/ale'           " linting
 Plug 'itchyny/lightline.vim'        " configure statusline
-Plug 'terryma/vim-multiple-cursors' " multiple cursors
+Plug 'sheerun/vim-polyglot'         " laguage pack
 Plug 'tpope/vim-commentary'         " comment stuff
 Plug 'tpope/vim-fugitive'           " git wrapper
 Plug 'tpope/vim-surround'           " quoting/parenthesizing
+Plug 'tpope/vim-vinegar'            " netrw enhancement
 
 call plug#end()
 
@@ -27,12 +29,20 @@ let g:lightline = {
   \ },
   \ }
 
+let g:ale_linters = {
+  \ 'javascript': [ 'standard' ],
+  \ }
+let g:ale_fixers = {
+  \ 'javascript': [ 'standard' ],
+  \ }
+
 " Vim Options
 filetype plugin indent on           " filetype-specific settings
 syntax on                           " syntax highlighting
 
 set autoindent                      " apply indent from previous line
 set backspace=indent,eol,start      " backspace behvaior
+set directory^=$HOME/.vim/swap//    " put .swp files in swap folder
 set expandtab                       " set tab press to 2 spaces
 set hidden                          " unsaved buffers
 set hlsearch                        " highlight search
