@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')   " vim-plug plugin manager
 Plug 'christoomey/vim-system-copy'  " clipboard copy/paste
 Plug 'dense-analysis/ale'           " linting
 Plug 'itchyny/lightline.vim'        " configure statusline
+Plug 'mhinz/vim-signify'            " source control differences
 Plug 'sheerun/vim-polyglot'         " laguage pack
 Plug 'tpope/vim-commentary'         " comment stuff
 Plug 'tpope/vim-fugitive'           " git wrapper
@@ -59,6 +60,11 @@ set shiftwidth=2                    " set indent (>) to 2 spaces
 set showtabline=2                   " file tab
 set tabstop=2                       " tabs appear 2 spaces wide
 set wildmenu                        " command-line completion
+
+hi SignColumn cterm=NONE ctermfg=bg ctermbg=bg gui=NONE guifg=bg guibg=bg
+hi DiffAdd    cterm=NONE ctermfg=green ctermbg=bg gui=NONE guifg=green guibg=bg
+hi DiffChange cterm=NONE ctermfg=yellow ctermbg=bg gui=NONE guifg=yellow guibg=bg
+hi DiffDelete cterm=NONE ctermfg=red ctermbg=bg gui=NONE guifg=red guibg=bg
 
 " Functions
 fun! TrimWhiteSpace()
