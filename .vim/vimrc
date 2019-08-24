@@ -9,6 +9,9 @@ call plug#begin('~/.vim/plugged')   " vim-plug plugin manager
 Plug 'christoomey/vim-system-copy'  " clipboard copy/paste
 Plug 'dense-analysis/ale'           " linting
 Plug 'itchyny/lightline.vim'        " configure statusline
+Plug '/usr/local/opt/fzf'           " fuzzy finder
+Plug 'junegunn/fzf.vim'             " fzf vim integration
+Plug 'ludovicchabant/vim-gutentags' " ctags management
 Plug 'mhinz/vim-signify'            " source control differences
 Plug 'sheerun/vim-polyglot'         " laguage pack
 Plug 'tpope/vim-commentary'         " comment stuff
@@ -36,6 +39,8 @@ let g:ale_linters = {
 let g:ale_fixers = {
   \ 'javascript': [ 'standard' ],
   \ }
+
+let g:signify_vcs_list = [ 'git' ]
 
 " Vim Options
 filetype plugin indent on           " filetype-specific settings
@@ -78,7 +83,15 @@ command! Update execute "so ~/.vim/vimrc"
 command! Trim call TrimWhiteSpace()
 
 " Mappings
-" bracket auto-completion  using {/[/( + Enter
+" bracket auto-completion for brackets and parentheses
 inoremap {<CR> {}<Left>
 inoremap [<CR> []<left>
 inoremap (<CR> ()<Left>
+
+inoremap '<CR> ''<Left>
+inoremap "<CR> ""<Left>
+inoremap `<CR> ``<Left>
+
+" fzf shortcuts
+nnoremap <c-p> :Files<CR>
+nnoremap ; :Ag 

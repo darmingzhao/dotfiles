@@ -107,3 +107,5 @@ alias tmuxconf="vim ~/.tmux.conf"
 alias vimrc="vim ~/.vim/vimrc"
 alias zshrc="vim ~/.zshrc"
 alias update="source ~/.zshrc"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
